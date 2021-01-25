@@ -513,7 +513,7 @@ export class FontData<C extends CharOptions, V extends VariantData<C>, D extends
   /**
    * Any styles needed for the font
    */
-  public styles: StyleList;
+  protected _styles: StyleList;
 
   /**
    * @param {CharMap} font   The font to check
@@ -548,6 +548,20 @@ export class FontData<C extends CharOptions, V extends VariantData<C>, D extends
     this.defineRemap('accent', CLASS.defaultAccentMap);
     this.defineRemap('mo', CLASS.defaultMoMap);
     this.defineRemap('mn', CLASS.defaultMnMap);
+  }
+
+  /**
+   * Returns list of styles needed for the font
+   */
+  get styles(): StyleList {
+    return this._styles;
+  }
+
+  /**
+   * Sets styles needed for that font.
+   */
+  set styles(style: StyleList) {
+    this._styles = style;
   }
 
   /**
