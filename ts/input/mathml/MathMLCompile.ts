@@ -159,6 +159,8 @@ export class MathMLCompile<N, T, D> {
         } else if (name === 'data-mjx-variant') {
           mml.attributes.set('mathvariant', value);
           ignoreVariant = true;
+        } else if (name === 'data-mjx-accent') {
+          mml.setProperty('mathaccent', value === 'true');
         }
       } else if (name !== 'class') {
         let val = value.toLowerCase();
